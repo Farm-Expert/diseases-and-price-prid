@@ -1,0 +1,7 @@
+pandas
+numpy
+fastapi
+uvicorn
+google-generativeai
+Pillow
+pydantic
