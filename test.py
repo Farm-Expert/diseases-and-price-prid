@@ -18,7 +18,6 @@ vision=genai.GenerativeModel("gemini-pro-vision")
 
 history=[]
 chat= model.start_chat(history=history)
-chat.send_message("you are Kate and i want you to respond to my every question in few lines.")
 
 app=FastAPI()
 
@@ -55,7 +54,7 @@ def home():
 @app.post("/priceprediction")
 def chatAPI(message:Textmessage):
     prediction=message.CropName + message.Location
-    message=f"I will provide you crop name and location {prediction} as input please provide the price of the crop at that location. Give some suggestive crops which have best price for that location and suggest me higer price loactions for that particular crop."
+    message=f"I will provide you crop name and location {prediction} as input please provide the price of the crop at that location. Give some suggestive crops which have best price for that location and suggest me higer price loactions for that particular crop. provide response in json format with keys as crop name, price, location, suggested crop, locations with higher price in india"
     return chatting(message)
 
 @app.post("/vision")
@@ -71,7 +70,7 @@ def visionAPI(view:Viewmessage):
         imgurl='image.jpg'
     imgurl = PIL.Image.open(imgurl)
 
-    message="I will provide you a image of infected plant leaf you will give me- plant name, disease name,symptoms, precautions and treatment saperatly and if image is not plant leaf then print this is not plant leaf please provide plant leaf "
+    message="I will provide you an image of infected plant leaf, you have to return a json with success:pass, plant name, disease name, symptoms, precautions, treatment and if image is not plant leaf then print this in a json format with key as success:fail, message: this is not a plant leaf. please provide plant leaf "
         
     # print(message)
     return viewmodel(message,imgurl)
