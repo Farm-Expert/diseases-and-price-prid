@@ -55,7 +55,7 @@ def home():
 def chatAPI(message:Textmessage):
     prediction=message.CropName + message.Location
     message=f"I will provide you crop name and location {prediction} as input please provide the price of the crop at that location. Give some suggestive crops which have best price for that location and suggest me higer price loactions for that particular crop in India. respond in json format with keys as crop_name, price, location, suggested_crops, locations_with_higher_prices. example "
-    message= message+"{"crop_name": "strawberry", "location": "Gwalior", "locations_with_higher_prices": [{"location": "Mumbai", "price": "140 per kg"}, {"location": "Delhi", "price": "120 per kg"}], "price": "100 per kg", "suggested_crops": ["banana", "papaya", "guava"]}"
+    message= message+'{"crop_name": "strawberry", "location": "Gwalior", "locations_with_higher_prices": [{"location": "Mumbai", "price": "140 per kg"}, {"location": "Delhi", "price": "120 per kg"}], "price": "100 per kg", "suggested_crops": ["banana", "papaya", "guava"]}'
     return chatting(message)
 
 @app.post("/vision")
@@ -71,7 +71,7 @@ def visionAPI(view:Viewmessage):
         imgurl='image.jpg'
     imgurl = PIL.Image.open(imgurl)
 
-    message="I will provide you an image of infected plant leaf, you have to return a json with success:pass, plant name, disease name, symptoms, precautions, treatment and if image is not plant leaf then print this in a json format with key as success:fail, message: this is not a plant leaf. please provide plant leaf. if it is a healthy plant, then return json with success:healthy, plant name, common_disease, message"
+    message="I will provide you an image of infected plant leaf, you have to respond in json format with success:pass and rest keys as plant_name, disease_name, symptoms, precautions, treatment.if image is not plant leaf then print this in a json format with key as success:fail, message: this is not a plant leaf. please provide plant leaf. if it is a healthy plant, then return json with success:healthy, plant name, common_disease, message"
         
     # print(message)
     return viewmodel(message,imgurl)
