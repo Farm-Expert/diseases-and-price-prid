@@ -71,7 +71,7 @@ def visionAPI(view:Viewmessage):
         imgurl='image.jpg'
     imgurl = PIL.Image.open(imgurl)
 
-    message="I will provide you an image of infected plant leaf, you have to respond in json format with success:pass and rest keys as plant_name, disease_name, symptoms, precautions, treatment.if image is not plant leaf then print this in a json format with key as success:fail, message: this is not a plant leaf. please provide plant leaf. if it is a healthy plant, then return json with success:healthy, plant name, common_disease, message"
+    message="I will provide you an image of infected plant leaf, you have to respond in json format with success:pass and rest keys as plant_name, disease_name, symptoms, precautions, treatment. the value for symptoms, precautions, treatment should also be a list if image is not plant leaf then print this in a json format with key as success:fail, message: this is not a plant leaf. please provide plant leaf. if it is a healthy plant, then return json with success:healthy, plant name, common_disease, message"
         
     # print(message)
     return viewmodel(message,imgurl)
