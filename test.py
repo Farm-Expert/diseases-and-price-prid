@@ -54,7 +54,7 @@ def home():
 @app.post("/priceprediction")
 def chatAPI(message:Textmessage):
     prediction=message.CropName + message.Location
-    message=f"I will provide you crop name and location {prediction} as input please provide the price of the crop at that location. Give some suggestive crops which have best price for that location and suggest me higer price loactions for that particular crop in India. respond in json format with keys as crop_name, price, location, suggested_crops, locations_with_higher_prices"
+    message=f"I will provide you crop name and location {prediction} as input please provide the price of the crop at that location. Give some suggestive crops which have best price for that location and suggest me higer price loactions for that particular crop in India. respond in json format with keys as crop_name, price, location, suggested_crops, locations_with_higher_prices. example "+"{"crop_name": "strawberry", "location": "Gwalior", "locations_with_higher_prices": [{"location": "Mumbai", "price": "140 per kg"}, {"location": "Delhi", "price": "120 per kg"}], "price": "100 per kg", "suggested_crops": ["banana", "papaya", "guava"]}"
     return chatting(message)
 
 @app.post("/vision")
