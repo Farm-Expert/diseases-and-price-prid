@@ -14,7 +14,7 @@ def read(text):
     return res
 
 model=genai.GenerativeModel("gemini-pro")
-vision=genai.GenerativeModel("gemini-pro-vision")
+vision=genai.GenerativeModel("gemini-1.5-pro")
 
 history=[]
 chat= model.start_chat(history=history)
