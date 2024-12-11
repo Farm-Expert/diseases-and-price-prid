@@ -4,7 +4,7 @@ import requests
 import PIL.Image
 import google.generativeai as genai
 
-genai.configure(api_key="AIzaSyDOXBMS4S_x3rrVsrq66QfZ7zDKAiHStLE")
+genai.configure(api_key="AIzaSyCzdI-Itcf8eSbrg8IHeNTfOhzeqkDKTg4")
 
 def read(text):
     res=""
